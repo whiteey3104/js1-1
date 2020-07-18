@@ -14,7 +14,7 @@ li{
 }
 
 
-#title1,#title2{
+#title1,#title2,#title3,#title4{
     padding-bottom:15px;
     border-bottom:solid 1px black;
     cursor: pointer;
@@ -28,5 +28,20 @@ li{
 #title2::before{
     content:attr(data);
     margin-right: 5px;
+}
+
+#title3::before{
+    content:attr(data);
+    margin-right: 5px;
+}
+
+#title4::before{
+    content:attr(data);
+    margin-right: 5px;
+}
+
+
+#open{
+    display: none;
 }
 

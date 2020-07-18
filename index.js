@@ -1,20 +1,22 @@
 
+//  <section class="type1">の処理
 let obj = [
     { ele: document.getElementById('title1'), flg: true },
     { ele: document.getElementById('title2'), flg: true }
 ]
 
+
 for (let i = 0; i < obj.length; i++) {
 
-    let o = obj[i]
+    let objIdx = obj[i]
 
-    o.ele.addEventListener('click', () => {
-        if (o.flg) {
-            addChildElement(o.ele, i + 3)
-            o.flg = false
+    objIdx.ele.addEventListener('click', () => {
+        if (objIdx.flg) {
+            addChildElement(objIdx.ele, i + 3)
+            objIdx.flg = false
         } else {
-            removeClassElement(o.ele, `${o.ele.id}__child`)
-            o.flg = true
+            removeClassElement(objIdx.ele, `${objIdx.ele.id}__child`)
+            objIdx.flg = true
         }
     })
 }
@@ -23,8 +25,14 @@ const addChildElement = (ele, number) => {
 
     ele.setAttribute('data', "▲")
 
-    for (let i = 1; i <= number; i++) {
-        ele.parentNode.insertAdjacentHTML('beforeend', `<li class="${ele.id}__child child">中身${i}</li>`);
+    for (let i = number; i > 0; i--) {
+
+        let newDiv = document.createElement("li")
+        let newContent = document.createTextNode(`中身${i}`)
+
+        newDiv.classList.add(`${ele.id}__child`, "child")
+        newDiv.appendChild(newContent)
+        ele.parentNode.insertBefore(newDiv, ele.nextSibling)
     }
 }
 
@@ -39,5 +47,34 @@ const removeClassElement = (ele, className) => {
         e.parentNode.removeChild(e)
     }
 }
+
+//  <section class="type2">の処理
+
+let obj2 = [
+    { ele: document.getElementById('title3'), flg: true },
+    { ele: document.getElementById('title4'), flg: true }
+]
+
+for (let i = 0; i < obj2.length; i++) {
+
+    let obj2Idx = obj2[i]
+
+    obj2Idx.ele.addEventListener('click', () => {
+        let e = obj2Idx.ele.parentNode.childNodes[3]
+
+        if (obj2Idx.flg) {
+            obj2Idx.ele.setAttribute('data', "▲")
+            e.style.display = "block"
+            obj2Idx.flg = false
+        } else {
+            obj2Idx.ele.setAttribute('data', "▼")
+            e.style.display = "none"
+            obj2Idx.flg = true
+        }
+    })
+}
+
+
+
 
 

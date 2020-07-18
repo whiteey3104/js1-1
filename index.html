@@ -10,15 +10,42 @@
 
 <body>
 
-    <ul class="menu">
-        <h3 id="title1" data="▼">メニュー1</h3>
-    </ul>
-    <ul class=" menu">
-        <h3 id="title2" data="▼">メニュー2</h3>
-    </ul>
+    <!-- jsでDOM生成 -->
+    <section class="type1">
+        <ul class="menu">
+            <h3 id="title1" data="▼">メニュー1</h3>
+        </ul>
+        <ul class="menu">
+            <h3 id="title2" data="▼">メニュー2</h3>
+        </ul>
+
+    </section>
+
+    <!-- display:none,display:blockで制御 -->
+    <section class="type2">
+
+        <ul class="menu">
+            <h3 id="title3" data="▼">メニュー3</h3>
+            <div id="open">
+                <li class="child">中身1</li>
+                <li class="child">中身2</li>
+                <li class="child">中身3</li>
+            </div>
+        </ul>
+
+        <ul class="menu">
+            <h3 id="title4" data="▼">メニュー4</h3>
+            <div id="open">
+                <li class="child">中身1</li>
+                <li class="child">中身2</li>
+                <li class="child">中身3</li>
+                <li class="child">中身4</li>
+            </div>
+        </ul>
+
+    </section>
 
     <script src="index.js"></script>
-
 </body>
 
 </html>
